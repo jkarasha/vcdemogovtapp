@@ -1,12 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+//
+import Home from './Home';
+import IssueCredential from './IssueCredential';
+import VerifyCredential from './VerifyCredential';
+
+function App() {
+
+  var hist = createBrowserHistory();
+
+  return (
+    <Router history={hist}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/issue" component={IssueCredential} />
+          <Route exact path="/verify" component={VerifyCredential} />
+        </Switch>
+    </Router>
+  )
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
