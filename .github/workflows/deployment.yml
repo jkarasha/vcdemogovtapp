@@ -26,6 +26,7 @@ env:
   AZURE_WEBAPP_PACKAGE_PATH: './build'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '14.x'                # set this to the node version to use
   CI: false
+  REACT_APP_ENV: 'production'
   
 jobs:
   build-and-deploy:
@@ -38,12 +39,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ env.NODE_VERSION }}
-    - name: npm install, build, and test
+    - name: yarn install, build, and test
       run: |
         # Build and test the project, then
         # deploy to Azure Web App.
-        npm install
-        npm run build --if-present
+        yarn install
+        yarn build --if-present
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
       with:
