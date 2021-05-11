@@ -16,8 +16,8 @@ function App() {
     <Router history={hist}>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/issue" component={IssueCredential} />
-          <Route exact path="/verify" component={VerifyCredential} />
+          <Route exact path="/issuer" component={IssueCredential} />
+          <Route exact path="/verifier" component={VerifyCredential} />
         </Switch>
     </Router>
   )
