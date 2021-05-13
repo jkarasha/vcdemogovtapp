@@ -29,9 +29,11 @@ export default function VerifyCredential() {
   const [ verified, setVerified ] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("verifiedCredential", function(event) {
-      if (event.origin != 'https://vcdemoapp.azurewebsites.net') {
-        console.log(event);
+    window.addEventListener("message", function(event) {
+      if (event.origin == 'https://vcdemoapp.azurewebsites.net') {
+        if (event.data.status == 2) {
+          setVerified(true);
+        }
         return;
       }
     });
@@ -78,7 +80,7 @@ export default function VerifyCredential() {
                     src="https://vcdemoapp.azurewebsites.net/EmploymentVerifier.html"
                     align="center"
                     width="100%"
-                    height="600"
+                    height="400"
                     frameBorder="0"
                     marginHeight="0"
                     marginWidth="0"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
@@ -19,9 +19,19 @@ export default function IssueCredential() {
   
   const classes = useStyles();
 
-  const  credentialIssued = () => {
+  const [ credIssued, setCredIssued ] = useState(false);
 
-  };
+  useEffect(() => {
+    window.addEventListener("message", function(event) {
+      if (event.origin == 'https://vcdemoapp.azurewebsites.net') {
+        if (event.data.status == 2) {
+          setCredIssued(true);
+        }
+        return;
+      }
+    });
+  });
+
   return (
     <div className={classes.root}>
       <Nav/>
@@ -57,11 +67,10 @@ export default function IssueCredential() {
               <Grid item xs={12}>
                 <Paper className={classes.paper}>
                   <iframe
-                    src="https://vcdemoapp.azurewebsites.net/verifieremployee.html"
+                    src="https://vcdemoapp.azurewebsites.net/GovernmentIssuer.html"
                     align="center"
                     width="100%"
                     height="600"
-                    onLoad={credentialIssued}
                     frameBorder="0"
                     marginHeight="0"
                     marginWidth="0"
@@ -73,7 +82,8 @@ export default function IssueCredential() {
                   color="primary"
                   variant="contained"
                   href="/"
-                  disabled="true">
+                  disabled={!credIssued}
+                  >
                   Done
                 </Button>
               </Grid>
