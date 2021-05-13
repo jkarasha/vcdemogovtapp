@@ -21,6 +21,7 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import PaymentIcon from '@material-ui/icons/Payment';
 
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -29,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: "#607D86",
   },
   drawer: {
     width: drawerWidth,
@@ -54,6 +56,10 @@ const useStyles = makeStyles((theme) => ({
   heroButtons: {
     marginTop: theme.spacing(4),
   },
+  logo: {
+    height: 50,
+    width: 50
+  },
 }));
 
 export default function Nav() {
@@ -64,12 +70,15 @@ export default function Nav() {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
+          <div>
+            <img className={classes.logo} src={process.env.PUBLIC_URL + 'government-building.svg'}/>
+          </div>
+          &nbsp;&nbsp;
           <Button
+            backgroundColor="#607D86"
             variant="contained"
-            href="/">Revenue Authority</Button>
-          <Typography variant="h6" noWrap>
-            
-          </Typography>
+            href="/">Revenue Authority
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer

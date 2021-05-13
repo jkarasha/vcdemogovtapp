@@ -56,7 +56,7 @@ export default function VerifyCredential() {
                     color="textPrimary"
                     gutterBottom
                   >
-                  Validate your Employment Status!
+                  Step 1: Validate your Employment Status.
                   </Typography>
                 </Paper>
               </Grid>
@@ -80,7 +80,7 @@ export default function VerifyCredential() {
                     src="https://vcdemoapp.azurewebsites.net/EmploymentVerifier.html"
                     align="center"
                     width="100%"
-                    height="400"
+                    height="600"
                     frameBorder="0"
                     marginHeight="0"
                     marginWidth="0"

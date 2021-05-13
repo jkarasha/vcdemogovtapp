@@ -12,6 +12,13 @@ import Nav from "./Nav";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    padding: theme.spacing(3),
+  },
+  paper: {
+    padding: theme.spacing(2),
+    display: 'flex',
+    overflow: 'auto',
+    flexDirection: 'column',
   },
 }));
 
@@ -49,7 +56,7 @@ export default function IssueCredential() {
                     color="textPrimary"
                     gutterBottom
                   >
-                  Get Tax-Exempt Credential
+                  Step 2: Get Tax-Exempt Credential
                   </Typography>
                 </Paper>
               </Grid>
@@ -82,9 +89,8 @@ export default function IssueCredential() {
                   color="primary"
                   variant="contained"
                   href="/"
-                  disabled={!credIssued}
                   >
-                  Done
+                  Home
                 </Button>
               </Grid>
             </Grid>
