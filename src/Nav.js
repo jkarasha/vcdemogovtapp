@@ -71,7 +71,9 @@ export default function Nav() {
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <div>
-            <img className={classes.logo} src={process.env.PUBLIC_URL + 'government-building.svg'}/>
+            <a href="https://www.freepik.com" title="Freepik">
+            <img className={classes.logo} title="Freepik" src={process.env.PUBLIC_URL + 'government-building.svg'}/>
+            </a>
           </div>
           &nbsp;&nbsp;
           <Button
